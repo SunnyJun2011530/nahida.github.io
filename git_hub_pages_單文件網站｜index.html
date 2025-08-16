@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>你的網站標題 — Nahida</title>
+  <meta name="description" content="個人作品集／部落格起步模板，適合部署到 GitHub Pages。" />
+  <meta name="author" content="Nahida" />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:title" content="Nahida — 個人網站" />
+  <meta property="og:description" content="極簡、快、可擴充的個人網站模板。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Nahida+Site" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✨%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #94a3b8;
+      --brand: #38bdf8;
+      --brand-2: #22d3ee;
+      --card: rgba(148, 163, 184, 0.08);
+      --border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 10px 30px rgba(2,6,23,.4);
+    }
+    :root.light {
+      --bg: #f8fafc;
+      --bg-soft: #ffffff;
+      --fg: #0f172a;
+      --muted: #475569;
+      --brand: #0ea5e9;
+      --brand-2: #22d3ee;
+      --card: rgba(2, 6, 23, 0.04);
+      --border: rgba(2, 6, 23, 0.08);
+      --shadow: 0 10px 24px rgba(2,6,23,.08);
+    }
+    @media (prefers-color-scheme: light){
+      :root:not(.dark){
+        --bg: #f8fafc;
+        --bg-soft: #ffffff;
+        --fg: #0f172a;
+        --muted: #475569;
+        --brand: #0ea5e9;
+        --brand-2: #22d3ee;
+        --card: rgba(2, 6, 23, 0.04);
+        --border: rgba(2, 6, 23, 0.08);
+        --shadow: 0 10px 24px rgba(2,6,23,.08);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "PingFang TC", "Noto Sans CJK TC", "Noto Sans TC", "Microsoft JhengHei", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.12), transparent 60%),
+                  radial-gradient(1200px 600px at 90% -10%, rgba(56,189,248,.12), transparent 60%),
+                  var(--bg);
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(150%) blur(8px);
+      background: linear-gradient(to bottom, rgba(2,6,23,.7), transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px; }
+    .brand .dot { width:10px; height:10px; border-radius:999px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 20px var(--brand); }
+    .nav-links { display:flex; align-items:center; gap:16px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:14px; border:1px solid var(--border); background:var(--card); color:var(--fg); box-shadow:var(--shadow); transition:transform .05s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border:0; color:#051520; font-weight:700; }
+    .toggle { cursor:pointer; }
+
+    .hero { padding: 96px 0 72px; display:grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items:center; }
+    .hero h1 { font-size: clamp(28px, 4.4vw, 56px); line-height:1.1; margin: 0 0 16px; letter-spacing: .3px; }
+    .hero p { font-size: clamp(16px, 2.2vw, 18px); color: var(--muted); margin: 0 0 24px; }
+    .hero .card { background: linear-gradient(180deg, rgba(148,163,184,.12), rgba(148,163,184,.04)); border:1px solid var(--border); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
+    .hero .preview { aspect-ratio: 16/10; border-radius: 14px; background: linear-gradient(135deg, rgba(56,189,248,.3), rgba(34,211,238,.3)); position: relative; overflow:hidden; }
+    .hero .preview:before { content:""; position:absolute; inset:-20%; background: radial-gradient(closest-side, rgba(255,255,255,.16), transparent 60%); filter: blur(20px); transform: rotate(12deg); }
+
+    .section { padding: 56px 0; }
+    .section h2 { font-size: 24px; margin: 0 0 16px; }
+    .grid { display:grid; gap: 16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .card { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    .muted { color: var(--muted); }
+
+    .project { display:flex; flex-direction:column; gap:10px; }
+    .project h3 { margin:0; font-size:18px; }
+    .project .tags { display:flex; gap:8px; flex-wrap:wrap; }
+    .tag { font-size:12px; padding:4px 8px; border-radius:999px; background:rgba(148,163,184,.18); border:1px solid var(--border); }
+
+    .contact { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+    .input { width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background: var(--bg-soft); color: var(--fg); }
+    textarea.input { min-height: 120px; resize: vertical; }
+
+    footer { padding: 40px 0; border-top:1px solid var(--border); color: var(--muted); }
+    .social { display:flex; gap:12px; }
+    .social a { display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:12px; background:var(--card); }
+
+    @media (max-width: 900px){ .hero { grid-template-columns: 1fr; padding-top: 72px; } .contact { grid-template-columns: 1fr; } .grid.cols-3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Nahida</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">關於</a>
+        <a href="#projects">作品</a>
+        <a href="#contact">聯絡</a>
+        <button id="themeToggle" class="btn toggle" aria-label="切換主題">🌗</button>
+        <a class="btn btn-primary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>你好，我是 <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Nahida</span>。這是我在 GitHub Pages 的個人網站。</h1>
+        <p>極簡、響應式、可擴充。適合放簡歷、作品集、筆記或部落格。整個站點只有一個 <code>index.html</code>，丟進倉庫就能開跑。</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn btn-primary" href="#projects">查看作品</a>
+          <a class="btn" href="#about">瞭解更多</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview"></div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px">
+          <span class="muted">輕量預覽區（可替換為截圖或封面）</span>
+          <a class="btn" href="./" download>下載此檔</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>關於我</h2>
+      <div class="card">
+        <p>學生一枚，愛折騰裝置、折騰系統，也寫點小工具。正在打磨更好的學習效率與工作流。</p>
+        <ul>
+          <li>🔧 技術興趣：Android 移植、前端開發、NAS / 自動化</li>
+          <li>📍 目前：學習與項目並行</li>
+          <li>📨 合作交流：請到最下方聯絡</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>精選作品</h2>
+      <div class="grid cols-3">
+        <article class="card project">
+          <div class="muted">2025</div>
+          <h3>移植 HyperOS 到 vangogh</h3>
+          <p class="muted">從零開始的移植筆記，重啓循環排查與分區提取流程。</p>
+          <div class="tags">
+            <span class="tag">Android</span>
+            <span class="tag">ROM</span>
+            <span class="tag">Debug</span>
+          </div>
+          <a class="btn" href="#">查看詳情</a>
+        </article>
+        <article class="card project">
+          <div class="muted">2024</div>
+          <h3>DSM on Lenovo B470</h3>
+          <p class="muted">Jun's Loader 1.03b + DS3615xs 的實戰記錄與坑位筆記。</p>
+          <div class="tags">
+            <span class="tag">NAS</span>
+            <span class="tag">Synology</span>
+          </div>
+          <a class="btn" href="#">Repo</a>
+        </article>
+        <article class="card project">
+          <div class="muted">2023</div>
+          <h3>極簡部落格模板</h3>
+          <p class="muted">零依賴靜態部落格雛形，專注寫作。</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">Vanilla JS</span>
+          </div>
+          <a class="btn" href="#">Demo</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>聯絡我</h2>
+      <div class="card">
+        <p class="muted">表單不走後端，直接走 <code>mailto:</code>。也可換成 Formspree / Netlify Forms。</p>
+        <form class="contact" action="mailto:you@example.com" method="post" enctype="text/plain">
+          <input class="input" name="name" placeholder="你的名字" required />
+          <input class="input" name="email" type="email" placeholder="Email" required />
+          <textarea class="input" name="message" placeholder="想說的話…" required></textarea>
+          <button class="btn btn-primary" type="submit">發送</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <div>© <span id="year"></span> Nahida. 以 MIT License 開源。</div>
+      <div class="social">
+        <a aria-label="GitHub" href="https://github.com/" target="_blank" rel="noreferrer" title="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.78-1.34-1.78-1.1-.76.08-.75.08-.75 1.22.09 1.86 1.26 1.86 1.26 1.08 1.84 2.83 1.31 3.52 1 .11-.79.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.8 5.64-5.47 5.94.43.37.81 1.1.81 2.23v3.31c0 .32.22.69.82.58A12 12 0 0 0 12 .5Z"/></svg>
+        </a>
+        <a aria-label="X" href="https://x.com/" target="_blank" rel="noreferrer" title="X">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.5 7.43L22.5 22H15.4l-5.07-6.53L4.37 22H1.61l7.01-8.01L1 2h7.26l4.57 6.1L18.24 2Zm-1.23 18h1.86L7.07 4H5.11l11.9 16Z"/></svg>
+        </a>
+        <a aria-label="Email" href="mailto:you@example.com" title="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13A2.5 2.5 0 0 1 19.5 21h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.5-.5a.5.5 0 0 0-.5.5v.638l8 5.333 8-5.333V5.5a.5.5 0 0 0-.5-.5h-15Zm15 4.138-6.94 4.627a1.5 1.5 0 0 1-1.12 0L4.5 9.138V18.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V9.138Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 年份、自動主題、手動切換
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const YEAR = new Date().getFullYear();
+    document.getElementById('year').textContent = YEAR;
+
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light') root.classList.add('light');
+    if(saved === 'dark') root.classList.add('dark');
+
+    function setTheme(mode){
+      root.classList.remove('light','dark');
+      if(mode==='light') root.classList.add('light');
+      if(mode==='dark') root.classList.add('dark');
+      localStorage.setItem('theme', mode);
+    }
+
+    themeToggle.addEventListener('click', ()=>{
+      const isLight = root.classList.contains('light');
+      const isDark = root.classList.contains('dark');
+      if(!isLight && !isDark){
+        // 沒有手動選擇時，根據媒體查詢當前狀態翻轉
+        const prefersLight = matchMedia('(prefers-color-scheme: light)').matches;
+        setTheme(prefersLight ? 'dark' : 'light');
+      } else {
+        setTheme(isLight ? 'dark' : 'light');
+      }
+    });
+
+    // 平滑滾動與焦點管理
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); el.setAttribute('tabindex','-1'); el.focus({preventScroll:true}); }
+      });
+    });
+  </script>
+</body>
+</html>
